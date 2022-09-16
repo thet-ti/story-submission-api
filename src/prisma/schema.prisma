@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Writer {
+  id             String         @id  @default(uuid())
+  name           String         @db.VarChar(255)
+  email          String         @db.VarChar(255)
+
+  stories        Story[]
+  confirmEmail   WriterValidation?
+
+  @@map("tb_writer")
+}
+
+model WriterValidation {
+  id              String          @id  @default(uuid())
+  writer          Writer          @relation(fields: [writerId], references: [id])
+  writerId        String          @unique
+  code            String          @unique
+  isConfirmed     Boolean         @default(false)
+
+  @@map("tb_writer_validation")
+}
+
+model Story {
+  id              String         @id  @default(uuid())
+  writer          Writer         @relation(fields: [writerId], references: [id])
+  writerId        String         
+  title           String         @db.VarChar(255)
+  synopsis        String         @db.VarChar(1000)
+  googleDriveId   String 
+
+  @@map("tb_story")
+}

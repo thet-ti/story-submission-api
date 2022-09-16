@@ -1,5 +1,25 @@
 import express from 'express'
+import { Router } from './routes'
+import morgan from 'morgan'
+import helmet from 'helmet'
+import bodyParser from 'body-parser'
+import { getEnv } from './utils/env'
 
 const app = express()
 
-app.listen(3000, () => { console.log('listening on port 3000') })
+// Logger middleware
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
+
+// Security options for HTTP
+app.use(helmet())
+
+app.use(bodyParser.json({ limit: '50mb' }))
+app.use(bodyParser.urlencoded({
+  limit: '50mb',
+  extended: true
+}))
+
+// Mount all routes in path /api
+app.use('/api', Router)
+
+app.listen(getEnv('PORT', 3000), () => { console.log('listening on port 3000') })
