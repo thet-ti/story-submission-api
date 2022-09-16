@@ -1,0 +1,14 @@
+version: '3'
+
+services: 
+  story-submssion-db:
+    image: postgres:13.1
+    container_name: story-submssion-db
+    environment:
+      - POSTGRES_USER=root 
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=story-submssion-db
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    ports:
+      - '5432:5432'
