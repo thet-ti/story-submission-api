@@ -1,4 +1,9 @@
-export const USER_ACTIONS: { [key: string]: string } = {
-  create_user: 'create_user',
-  select_by_email: 'select_user_by_email'
+export const WRITER_ACTIONS: { [key: string]: string } = {
+  create_writer: 'create_writer',
+  select_writer_by_email: 'select_writer_by_email',
+  select_writer_by_id: 'select_writer_by_id'
+}
+
+export const STORY_ACTIONS: { [key: string]: string } = {
+  create_story: 'create_story'
 }

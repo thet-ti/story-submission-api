@@ -1,17 +1,17 @@
 
 import { Prisma } from '@prisma/client'
-import { Request, Response, Router } from 'express'
+import express, { Request, Response } from 'express'
 import { ErrorTypes } from '../@types/error.types'
-import { USER_ACTIONS } from '../constants/actions.constant'
+import { WRITER_ACTIONS } from '../constants/actions.constant'
 import { errorHandler } from '../middlewares/error_handler.middleware'
 import { validator } from '../middlewares/validatior_handler.middleware'
-import { UserCreateSchema, UserSelectByEmailSchema } from '../schemas/writer.schema'
+import { WriterCreateSchema, WriterSelectByEmailSchema } from '../schemas/writer.schema'
 import { WriterService } from '../services/writer.service'
 
-const router = Router()
+const router = express.Router()
 
 router.post('/',
-  validator(UserCreateSchema, USER_ACTIONS.create_user),
+  validator(WriterCreateSchema, WRITER_ACTIONS.create_writer),
   async (request: Request, response: Response): Promise<Response> => {
     try {
       const {
@@ -32,7 +32,7 @@ router.post('/',
   })
 
 router.get('/:email',
-  validator(UserSelectByEmailSchema, USER_ACTIONS.select_by_email),
+  validator(WriterSelectByEmailSchema, WRITER_ACTIONS.select_by_email),
   async (request: Request, response: Response): Promise<Response> => {
     try {
       const email = request.query.email as string

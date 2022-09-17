@@ -1,39 +1,57 @@
 import { Prisma, Writer } from '@prisma/client'
 import httpStatus from 'http-status'
-import { USER_ACTIONS } from '../constants/actions.constant'
+import { WRITER_ACTIONS } from '../constants/actions.constant'
 import BusinessError, { BUSINESS_ERROR_MESSAGES } from '../errors/business.error'
 import { WriterRepository } from '../repositories/writer.repository'
 
 const create = async (writer: Prisma.WriterCreateInput): Promise<Writer> => {
-  const userAlreadyExists = await selectByEmail(writer.email)
+  const writerAlreadyExists = await selectByEmail(writer.email, true)
 
-  console.log('USER ALREADY EXISTS', userAlreadyExists)
-
-  if (userAlreadyExists != null) {
+  if (writerAlreadyExists != null) {
     throw new BusinessError(
       BUSINESS_ERROR_MESSAGES.already_exists,
       httpStatus.CONFLICT,
-      USER_ACTIONS.create_user
+      WRITER_ACTIONS.create_writer
     )
   }
 
   const createdWriter = await WriterRepository.create(writer)
 
-  // Send e-mail of confirmation
+  // Send e-mail of confirmation and create in local data-base
 
   return createdWriter
 }
 
-const selectByEmail = async (email: string): Promise<Writer | null> => {
+const selectByEmail = async (email: string, ignoreError = false): Promise<Writer | null> => {
   const selectedWriter = await WriterRepository.selectOne({
-    where: { email }
+    where: { email },
+    include: {
+      stories: true,
+      confirmEmail: true
+    }
+  })
+
+  if (selectedWriter == null && !ignoreError) {
+    throw new BusinessError(
+      BUSINESS_ERROR_MESSAGES.not_found,
+      httpStatus.NOT_FOUND,
+      WRITER_ACTIONS.select_by_email
+    )
+  }
+
+  return selectedWriter
+}
+
+const selectById = async (writerId: string): Promise<Writer | null> => {
+  const selectedWriter = await WriterRepository.selectOne({
+    where: { id: writerId }
   })
 
   if (selectedWriter == null) {
     throw new BusinessError(
       BUSINESS_ERROR_MESSAGES.not_found,
       httpStatus.NOT_FOUND,
-      USER_ACTIONS.select_by_email
+      WRITER_ACTIONS.select_writer_by_id
     )
   }
 
@@ -42,5 +60,6 @@ const selectByEmail = async (email: string): Promise<Writer | null> => {
 
 export const WriterService = {
   create,
-  selectByEmail
+  selectByEmail,
+  selectById
 }

@@ -37,7 +37,8 @@ model Story {
   writerId        String         
   title           String         @db.VarChar(255)
   synopsis        String         @db.VarChar(1000)
-  googleDriveId   String 
+  googleDriveId   String?
+  isCompleted     Boolean        @default(false)
 
   @@map("tb_story")
 }
