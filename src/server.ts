@@ -19,7 +19,6 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
-// Mount all routes in path /api
 app.use('/api', Router)
 
-app.listen(getEnv('PORT', 3000), () => { console.log('listening on port 3000') })
+app.listen(getEnv('PORT', 3000), () => { console.log('[START] On port 3000') })

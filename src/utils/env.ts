@@ -1,3 +1,3 @@
-export const getEnv = (key: string, defaultValue: any): string => {
+export const getEnv = (key: string, defaultValue?: any): string => {
   return process.env[key] ?? defaultValue
 }

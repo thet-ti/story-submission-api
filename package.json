@@ -4,6 +4,14 @@
   "description": "Simple express backend to send e-mails and files",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start:dev": "nodemon",
+    "db:generate": "npx prisma generate",
+    "db:migration-generate": "npx prisma migrate dev --name",
+    "db:seed": "ts-node src/prisma/seeders/index.ts",
+    "db:migration": "npx prisma migrate dev",
+    "db:update": "npm run db:migration && npm run db:seed && npm run db:generate"
+  },
   "devDependencies": {
     "@types/express": "^4.17.14",
     "@types/morgan": "^1.9.3",
@@ -21,12 +29,15 @@
   },
   "dependencies": {
     "@prisma/client": "^4.3.1",
+    "@sentry/node": "^7.13.0",
+    "@sentry/tracing": "^7.13.0",
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "helmet": "^6.0.0",
     "http-status": "^1.5.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "yup": "^0.32.11"
   },
   "prisma": {
     "schema": "src/prisma/schema.prisma"
