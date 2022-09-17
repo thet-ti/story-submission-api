@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import httpStatus from 'http-status'
 import { ErrorTypes } from '../@types/error.types'
 
 export const errorHandler = async (
@@ -15,5 +16,10 @@ export const errorHandler = async (
     action: error.action,
     status: error.status
   }
-  return response.status(error.status).json(responseData)
+
+  if (error.status !== null) {
+    return response.status(error.status).json(responseData)
+  } else {
+    return response.status(httpStatus.BAD_REQUEST).json(responseData)
+  }
 }

@@ -4,6 +4,7 @@ import morgan from 'morgan'
 import helmet from 'helmet'
 import bodyParser from 'body-parser'
 import { getEnv } from './utils/env'
+import cors from 'cors'
 
 const app = express()
 
@@ -18,6 +19,8 @@ app.use(bodyParser.urlencoded({
   limit: '50mb',
   extended: true
 }))
+
+app.use(cors())
 
 app.use('/api', Router)
 

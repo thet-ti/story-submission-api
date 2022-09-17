@@ -23,6 +23,8 @@ const create = async (writer: Prisma.WriterCreateInput): Promise<Writer> => {
 }
 
 const selectByEmail = async (email: string, ignoreError = false): Promise<Writer | null> => {
+  console.log('EMAIL', email)
+
   const selectedWriter = await WriterRepository.selectOne({
     where: { email },
     include: {
@@ -30,6 +32,10 @@ const selectByEmail = async (email: string, ignoreError = false): Promise<Writer
       confirmEmail: true
     }
   })
+
+  // Gen random code
+  // Create WriterValidation
+  // Send email to confirm
 
   if (selectedWriter == null && !ignoreError) {
     throw new BusinessError(

@@ -35,9 +35,7 @@ router.get('/:email',
   validator(WriterSelectByEmailSchema, WRITER_ACTIONS.select_by_email),
   async (request: Request, response: Response): Promise<Response> => {
     try {
-      const email = request.query.email as string
-
-      const selectedWriter = await WriterService.selectByEmail(email)
+      const selectedWriter = await WriterService.selectByEmail(request.params.email)
 
       return response.status(200).json(selectedWriter)
     } catch (error) {

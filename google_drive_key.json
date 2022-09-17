@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "story-submission",
+  "private_key_id": "135f655eee153afb524034e279a775d350927f02",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCYjdCIJZj5Kbgl\nfgWno+xJgSfnWxmUea84XsiMhsHbQcRUn0+wAMVbBqyY2BBnIzDMCuiqql116WvP\nsINTiT2B6HIvaj8Otj+IxFnmE3KqncBHGhIyXUMfOQ74w/FXOSoTxSjFfxOGc8Mq\nz23xIhFlDnlyRX5wbyrFuPCe70KMp5uD20zqJCBhQY0b3UPHK2S1bNed58u+7Y/a\nnfX6ou8nGWBqi9I6B0s2daojgK8WIqyjymwHXueb8cbIzVcMiP/lKI4TUQ702nfV\nPDq2oC08Uggzjlima6NtADXEtFL7HUPY2WyqWFjBbAjwVnavrTfkdQ0ntE08cq6q\n/mhQbbyLAgMBAAECggEADLQNIAk2yn4gM3RhttVToRtRiKvGtDJzK4KDuLqlUe4R\nZz/iPDRpkBbnhc1thZPMmxvIHCNrp5yfDwBn2dZHz5WHofh69RgABRI0r5ABsGt1\nI3aW+qgBeuF0JGBMrIgPakNfYx1zMXMFAX+cbBlQ0YAkZNDx98g0tkTxjzU6mXO1\nSxm1rfdvYeI5g7xgd49t6LVYCRcJ08eHiCRDN0zcr9BLftDufTXV9ZwAAJFH4zyk\nk2JO2Xjjk2kt7mq94RobdhaSTanR/6xQELWnmlVM+js+dM9+WEeATR+9ZzDloxRR\nfGQQSQGu6cNG/cXh7XtlbCJxui6xhjWJy0+vKtNhoQKBgQDL5k1KVuKzpWsSyOkG\nBh7RC0ymXtTYNUeJv6KiKoA57Z1KBhIJYKQbJF861IK9B0olY8eCdhdVjOKLzBcc\nT5EoI9plS2xiG74Q1BwxHjlT29T2mjPv9aOOzygiU7aM02rNH4FMs3mBSkdE4kNm\nP3UqNSgHN91HZPIWbPdI2p0etQKBgQC/iNYWuut8bvTHOdjWLmJSHC6LArK+feOJ\n56QrLcNTfw1Z684I+7W5goQAg2hgjVnhwKhtzLXaKPsHF9M8nzJr+sCJhzcQWdjN\neBGzKFb+rRjGiqA/690BksWBontzyIkoMhwsnGZB0bt3QxKD7X+oQeodDKdgbaf/\nlzYahsU2PwKBgG1UxxrWbebQCxLegfyF6Z5DxczryotIPlzBUe5MhccJ/y4DBUbb\n+ALJxPphmtzK/NoBn6f3tFleGtfFDptSms4AM4nfIHWW1Jpncdpwj2LE3HOCidjg\nSNw5fhax9o+aiYkFnKpJDhzifEaWYHeCDUwdhqIgNVmj6h9WPF5nQpqFAoGATwCK\nDeYbq7+4h1R89Bs9wtCNAhmi0J/scr1xIb5GivIk96oj2eC5HEORXwTU0L59DHkD\nAAcoG0w7/rj9EEw56AAN2qxDMiNdIaMc6eEBwRp01a/oWXVYO4XmoYn7kc5thH7m\n0B/SreNsh8zKnlAgD67gegr2HvgcC3i7gEWGotECgYEAomiNlD/k8aUpGjVKGqJs\niBNZ+//iPKWJlS1TC4t6Ovkycbve/NqtaPvfXH7rdKuP2V4fD5YUTM6Vwkr0jl7h\nhCL670ZVDobLZv+tq4i4b8BTDq77yzgzT/UR8h6Z+PlDg9Wv3enAew7ivMWhUVc5\n8xZZn6O6+TzqZ/n8su05qzk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "googledrive@story-submission.iam.gserviceaccount.com",
+  "client_id": "108685532361376719535",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/googledrive%40story-submission.iam.gserviceaccount.com"
+}
