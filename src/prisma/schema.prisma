@@ -38,6 +38,7 @@ model Story {
   title           String         @db.VarChar(255)
   synopsis        String         @db.VarChar(1000)
   googleDriveId   String?
+  storyProtocol   String
   isCompleted     Boolean        @default(false)
 
   @@map("tb_story")

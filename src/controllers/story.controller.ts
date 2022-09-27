@@ -1,7 +1,6 @@
 
 import { Prisma } from '@prisma/client'
 import express, { Request, Response } from 'express'
-import multer from 'multer'
 import { ErrorTypes } from '../@types/error.types'
 import { STORY_ACTIONS } from '../constants/actions.constant'
 import { errorHandler } from '../middlewares/error_handler.middleware'
@@ -21,15 +20,13 @@ router.post('/',
         writerId,
         isCompleted,
         file
-      }: Prisma.StoryUncheckedCreateInput & {
+      }: Omit<Prisma.StoryUncheckedCreateInput & {
         file: {
           name: string
           mimeType: string
           fileEncoded: BufferEncoding
         }
-      } = request.body
-
-      // console.log(request.body)
+      }, 'storyProtocol'> = request.body
 
       const createdStory = await StoryService.create({
         title,

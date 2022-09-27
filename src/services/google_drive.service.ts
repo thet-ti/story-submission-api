@@ -37,8 +37,6 @@ const create = async (file: IFileData): Promise<drive_v3.Schema$File> => {
     fields: 'id, name'
   })
 
-  console.log('UPLOADED FILE', data)
-
   return data
 }
 
